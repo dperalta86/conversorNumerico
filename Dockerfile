@@ -5,7 +5,7 @@ FROM openjdk:17-jdk-slim
 WORKDIR /app
 
 # Copia el archivo JAR de tu aplicación al contenedor
-COPY target/conversor.jar /app/conversorNumerico-1.0-SNAPSHOT.jar
+COPY target/conversorNumerico-1.0-SNAPSHOT.jar /app/conversorNumerico-1.0-SNAPSHOT.jar
 
 # Define el comando que se ejecutará al iniciar el contenedor
 CMD ["java", "-jar", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
