@@ -12,10 +12,11 @@
 
 # Usa una imagen base de Java para ejecutar la aplicación
 FROM openjdk:21-jdk-slim
-#WORKDIR /app
+RUN mkdir -p
+WORKDIR /app
 
 # Copia el JAR generado desde la etapa anterior
-COPY /target/conversorNumerico-1.0-SNAPSHOT.jar /conversorNumerico-1.0-SNAPSHOT.jar
+COPY /app/target/conversorNumerico-1.0-SNAPSHOT.jar /app/conversorNumerico-1.0-SNAPSHOT.jar
 
 # Comando para ejecutar la aplicación
 CMD ["java", "-jar", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
