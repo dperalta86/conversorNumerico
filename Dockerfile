@@ -19,5 +19,6 @@ WORKDIR /app
 COPY /target/conversorNumerico-1.0-SNAPSHOT.jar /app/conversorNumerico-1.0-SNAPSHOT.jar
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-cp", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
+EXPOSE 8080
+ENTRYPOINT ["java", "-jar", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
 
