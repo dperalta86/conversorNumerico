@@ -1,13 +1,14 @@
 # Usa una imagen base de Maven con JDK 21
-FROM maven:4.0.0-openjdk-21 AS build
-WORKDIR /app
+#FROM amazoncorretto:17
+#FROM maven:3.9.9-openjdk-21 AS build
+#WORKDIR /app
 
 # Copia el pom.xml y los archivos de configuración
-COPY pom.xml .
-COPY src ./src
+#COPY pom.xml .
+#COPY src ./src
 
 # Compila el proyecto
-RUN mvn clean package
+#RUN mvn clean package
 
 # Usa una imagen base de Java para ejecutar la aplicación
 FROM openjdk:21-jdk-slim
