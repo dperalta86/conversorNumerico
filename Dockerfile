@@ -13,7 +13,7 @@
 # Usa una imagen base de Java para ejecutar la aplicación
 FROM openjdk:21-jdk-slim
 #RUN mkdir -p
-#WORKDIR /app
+WORKDIR /app
 
 # Copia el JAR generado desde la etapa anterior
 COPY /target/conversorNumerico-1.0-SNAPSHOT.jar /conversorNumerico-1.0-SNAPSHOT.jar
