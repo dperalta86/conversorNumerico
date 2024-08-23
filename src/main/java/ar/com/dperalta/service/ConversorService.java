@@ -16,16 +16,36 @@ public class ConversorService {
 
         switch (from) {
             case "decimal":
-                result = convertFromDecimal(to, Integer.parseInt(value));
+                try {
+                    result = convertFromDecimal(to, Integer.parseInt(value));
+                } catch (NumberFormatException e) {
+                    System.out.println("El valor proporcionado no es válido en la base " + from);
+                    result = "El valor proporcionado no es válido en la base " + from;
+                }
                 break;
             case "binary":
-                result = convertFromDecimal(to, Integer.parseInt(value, 2));
+                try {
+                    result = convertFromDecimal(to, Integer.parseInt(value, 2));
+                } catch (NumberFormatException e) {
+                    System.out.println("El valor proporcionado no es válido en la base " + from);
+                    result = "El valor proporcionado no es válido en la base " + from;
+                }
                 break;
             case "octal":
-                result = convertFromDecimal(to, Integer.parseInt(value, 8));
+                try {
+                    result = convertFromDecimal(to, Integer.parseInt(value, 8));
+                } catch (NumberFormatException e) {
+                    System.out.println("El valor proporcionado no es válido en la base " + from);
+                    result = "El valor proporcionado no es válido en la base " + from;
+                }
                 break;
             case "hexadecimal":
-                result = convertFromDecimal(to, Integer.parseInt(value, 16));
+                try {
+                    result = convertFromDecimal(to, Integer.parseInt(value, 16));
+                } catch (NumberFormatException e) {
+                    System.out.println("El valor proporcionado no es válido en la base " + from);
+                    result = "El valor proporcionado no es válido en la base " + from;
+                }
                 break;
             default:
                 result = "Formato de origen no soportado.";
