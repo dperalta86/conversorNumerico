@@ -19,5 +19,5 @@ WORKDIR /app
 COPY /target/conversorNumerico-1.0-SNAPSHOT.jar /app/conversorNumerico-1.0-SNAPSHOT.jar
 
 # Comando para ejecutar la aplicación
-CMD ["java", "-jar", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
+CMD ["java", "-cp", "/app/conversorNumerico-1.0-SNAPSHOT.jar"]
 
