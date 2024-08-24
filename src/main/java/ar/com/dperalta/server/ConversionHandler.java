@@ -16,11 +16,14 @@ public class ConversionHandler implements HttpHandler {
         exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
 
-        if ("OPTIONS".equals(exchange.getRequestMethod())) {
-            // Manejar preflight request (verifica los permisos CORS)
+        if ("OPTIONS".equalsIgnoreCase(exchange.getRequestMethod())) {
+            exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://conversion-frontend-production.up.railway.app");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+            exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type, Authorization");
             exchange.sendResponseHeaders(204, -1);
             return;
         }
+
 
         if ("POST".equalsIgnoreCase(exchange.getRequestMethod())) {
             // Leer los datos enviados y los envia al servicio ConversorService
