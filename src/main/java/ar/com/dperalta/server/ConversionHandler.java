@@ -1,5 +1,6 @@
 package ar.com.dperalta.server;
 
+import ar.com.dperalta.service.ConversorService;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 
@@ -22,8 +23,8 @@ public class ConversionHandler implements HttpHandler {
         }
 
         if ("POST".equalsIgnoreCase(exchange.getRequestMethod())) {
-            // Leer los datos enviados
-            String response = handleConversion(exchange);
+            // Leer los datos enviados y los envia al servicio ConversorService
+            String response = ConversorService.processConversion(String.valueOf(exchange));
             exchange.sendResponseHeaders(200, response.getBytes().length);
             OutputStream os = exchange.getResponseBody();
             os.write(response.getBytes());
@@ -33,10 +34,13 @@ public class ConversionHandler implements HttpHandler {
         }
     }
 
+    /*
     private String handleConversion(HttpExchange exchange) throws IOException {
         // Aquí va la lógica para manejar la conversión
         // Leer los datos, convertir y devolver el resultado
         // Este es solo un ejemplo básico
         return "Resultado de la conversión";
     }
+
+     */
 }
