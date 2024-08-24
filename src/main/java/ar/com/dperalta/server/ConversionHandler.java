@@ -12,7 +12,7 @@ public class ConversionHandler implements HttpHandler {
     @Override
     public void handle(HttpExchange exchange) throws IOException {
         // Configurar los headers CORS
-        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "https://conversor.dperalta.com.ar");
+        exchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
         exchange.getResponseHeaders().add("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
         exchange.getResponseHeaders().add("Access-Control-Allow-Headers", "Content-Type");
 
@@ -34,13 +34,4 @@ public class ConversionHandler implements HttpHandler {
         }
     }
 
-    /*
-    private String handleConversion(HttpExchange exchange) throws IOException {
-        // Aquí va la lógica para manejar la conversión
-        // Leer los datos, convertir y devolver el resultado
-        // Este es solo un ejemplo básico
-        return "Resultado de la conversión";
-    }
-
-     */
 }
